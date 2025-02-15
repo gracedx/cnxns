@@ -1,1 +1,66 @@
-testing this file
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+
+const initialWords = [
+  "Apple", "Banana", "Cherry", "Date",
+  "Dog", "Cat", "Horse", "Elephant",
+  "Red", "Blue", "Green", "Yellow",
+  "Violin", "Piano", "Guitar", "Drums"
+];
+
+const correctGroups = {
+  "Fruits": ["Apple", "Banana", "Cherry", "Date"],
+  "Animals": ["Dog", "Cat", "Horse", "Elephant"],
+  "Colors": ["Red", "Blue", "Green", "Yellow"],
+  "Instruments": ["Violin", "Piano", "Guitar", "Drums"]
+};
+
+export default function ConnectionsGame() {
+  const [selected, setSelected] = useState([]);
+  const [words, setWords] = useState(initialWords);
+  const [message, setMessage] = useState("");
+
+  const handleSelect = (word) => {
+    setSelected((prev) =>
+      prev.includes(word) ? prev.filter((w) => w !== word) : [...prev, word]
+    );
+  };
+
+  const checkSelection = () => {
+    for (const category in correctGroups) {
+      if (
+        selected.length === 4 &&
+        correctGroups[category].every((word) => selected.includes(word))
+      ) {
+        setWords((prev) => prev.filter((word) => !selected.includes(word)));
+        setSelected([]);
+        setMessage(`Correct! You found the ${category} group.`);
+        return;
+      }
+    }
+    setMessage("Incorrect selection. Try again!");
+  };
+
+  return (
+    <div className="p-6 space-y-4">
+      <div className="grid grid-cols-4 gap-4">
+        {words.map((word) => (
+          <motion.div key={word} whileTap={{ scale: 0.9 }}>
+            <Button
+              variant={selected.includes(word) ? "secondary" : "default"}
+              onClick={() => handleSelect(word)}
+            >
+              {word}
+            </Button>
+          </motion.div>
+        ))}
+      </div>
+      <Button onClick={checkSelection} disabled={selected.length !== 4}>
+        Submit Selection
+      </Button>
+      {message && <Card><CardContent className="p-4 text-center">{message}</CardContent></Card>}
+    </div>
+  );
+}
