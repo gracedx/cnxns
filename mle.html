@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mle</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: black;
+        }
+        .word {
+            background: whitesmoke;
+        }
+        .word.selected {
+            background: white;
+            color: rgb(81, 7, 7);
+        }
+    </style>
+</head>
+<body class="mle">
+    <h1 style="color: wheat;">mle</h1>
+    
+    <div id="game-grid"></div>
+    <button class="submit-button" style="color: whitesmoke;">Submit</button>
+    <p id="message"></p>
+    <h2 style="color: wheat;">found cat.s:</h2>
+    <div id="found-groups">
+    </div> 
+    
+   <a href="index.html" class="back-home" style="color: wheat;">⬅ Back to Home</a>
+
+
+    <!-- Load the game script -->
+    <script src="script.js"></script>
+
+    <!-- Define the word groups for THIS game -->
+    <script>
+        const gameGroups = {
+            "Ends of Book Titles": ["life", "sower", "tomorrow", "poet"],
+            "Various Translations of Metamorphosis's Creature": ["cockroach", "vermin", "beetle", "centipede"],
+            "Artworks at Newfields": ["hotel lobby", "charing cross bridge", "sunlight", "dorothy"],
+            "types of pie": ["person in existence", "pumpkin", "π", "piscine patel"]
+        };
+
+        function customMessage() {
+        return "🏆 Great work! You mastered all the connections for mle! 🏆";
+    }
+
+    initializeGame(gameGroups, customMessage);
+    </script>
+</body>
+</html>

@@ -1,79 +1,82 @@
-// Example groups (customize these)
-const groups = {
-  "Fruits": ["Apple", "Banana", "Orange", "Grape"],
-  "Colors": ["Red", "Blue", "Green", "Yellow"],
-  "Animals": ["Dog", "Cat", "Elephant", "Lion"],
-  "Tools": ["Hammer", "Screwdriver", "Wrench", "Saw"]
-};
+function initializeGame(groups, finalMessageFunc) {
+    const words = Object.values(groups).flat(); // Flatten the groups into one array
+    const shuffledWords = words.sort(() => Math.random() - 0.5);
+    const selectedWords = [];
+    const grid = document.getElementById("game-grid");
+    const foundGroupsDiv = document.getElementById("found-groups");
+    const messageDiv = document.getElementById("message");
+    let foundGroupCount = 0; // Track the number of found groups
 
-// Flatten the groups into a shuffled array
-const words = Object.values(groups).flat();
-const shuffledWords = words.sort(() => Math.random() - 0.5);
+    // Clear the grid and found groups section in case of re-initialization
+    grid.innerHTML = "";
+    foundGroupsDiv.innerHTML = "";
+    messageDiv.textContent = ""; // Clear message
 
-const selectedWords = [];
-const correctGroups = new Set();
+    // Create word buttons
+    shuffledWords.forEach(word => {
+        const div = document.createElement("div");
+        div.className = "word";
+        div.textContent = word;
+        div.addEventListener("click", () => selectWord(div, word));
+        grid.appendChild(div);
+    });
 
-// Populate the grid
-const grid = document.getElementById("game-grid");
-shuffledWords.forEach((word) => {
-  const div = document.createElement("div");
-  div.className = "word";
-  div.textContent = word;
-  div.addEventListener("click", () => selectWord(div, word));
-  grid.appendChild(div);
-});
+    function selectWord(element, word) {
+        if (selectedWords.includes(word)) {
+            selectedWords.splice(selectedWords.indexOf(word), 1);
+            element.classList.remove("selected");
+        } else {
+            if (selectedWords.length < 4) {
+                selectedWords.push(word);
+                element.classList.add("selected");
+            }
+        }
+    }
 
-// Handle word selection
-function selectWord(element, word) {
-  if (selectedWords.includes(word)) {
-      // Deselect if already selected
-      selectedWords.splice(selectedWords.indexOf(word), 1);
-      element.classList.remove("selected");
-  } else {
-      // Select if less than 4 words are selected
-      if (selectedWords.length < 4) {
-          selectedWords.push(word);
-          element.classList.add("selected");
-      }
-  }
+    document.querySelector(".submit-button").addEventListener("click", () => {
+        if (selectedWords.length !== 4) {
+            messageDiv.textContent = "Please select exactly 4 words!";
+            return;
+        }
+
+        // Check if selection is an exact match to a group
+        const groupName = Object.keys(groups).find(key => {
+            const groupWords = groups[key];
+            return (
+                groupWords.every(word => selectedWords.includes(word)) &&
+                selectedWords.every(word => groupWords.includes(word))
+            );
+        });
+
+        if (groupName) {
+            messageDiv.textContent = `Yay! You found: ${groupName}.`;
+
+            // Remove selected words from the grid
+            selectedWords.forEach(word => {
+                const wordElement = [...grid.children].find(child => child.textContent === word);
+                if (wordElement) {
+                    wordElement.remove();
+                }
+            });
+
+            // Append the found group to the "found-groups" div
+            const groupList = document.createElement("div");
+            groupList.innerHTML = `<h3>${groupName}</h3><p>${selectedWords.join(", ")}</p>`;
+            foundGroupsDiv.appendChild(groupList);
+
+            // Increment found groups count
+            foundGroupCount++;
+
+            // Check if all groups are found
+            if (foundGroupCount === Object.keys(groups).length) {
+                messageDiv.innerHTML = finalMessageFunc(); // Call the custom message function
+            }
+        } else {
+            messageDiv.textContent = "Try again.";
+        }
+
+        // Reset selection
+        selectedWords.length = 0;
+        document.querySelectorAll(".word.selected").forEach(el => el.classList.remove("selected"));
+    });
 }
-
-// Handle submission
-document.getElementById("submit-button").addEventListener("click", () => {
-  if (selectedWords.length !== 4) {
-      document.getElementById("message").textContent = "Please select exactly 4 words!";
-      return;
-  }
-
-  // Check if the selected words form a valid group
-  const groupName = Object.keys(groups).find((key) => {
-      return groups[key].every((word) => selectedWords.includes(word));
-  });
-
-  if (groupName) {
-      correctGroups.add(groupName);
-      document.getElementById("message").textContent = `Correct! You found the ${groupName} group.`;
-      
-      // Remove the matched words
-      selectedWords.forEach((word) => {
-          const wordElement = [...grid.children].find((child) => child.textContent === word);
-          if (wordElement) {
-              wordElement.remove();
-          }
-      });
-
-      // Clear selected words
-      selectedWords.length = 0;
-
-      // Check if the game is complete
-      if (correctGroups.size === Object.keys(groups).length) {
-          document.getElementById("message").textContent = "Congratulations! You found all the groups!";
-      }
-  } else {
-      document.getElementById("message").textContent = "Incorrect group! Try again.";
-  }
-
-  // Clear selections
-  selectedWords.length = 0;
-  [...grid.children].forEach((child) => child.classList.remove("selected"));
-});

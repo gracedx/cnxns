@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miss</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: lightpink;
+        }
+        .word.selected {
+            background: white;
+            color: coral;
+        }
+    </style>
+</head>
+<body class="miss">
+    <h1>miss</h1>
+    
+    <div id="game-grid"></div>
+    <button class="submit-button">Submit</button>
+    <p id="message"></p>
+    <h2>ain't no way:</h2>
+    <div id="found-groups">
+    </div> 
+    
+   <a href="index.html" class="back-home">⬅ Back to Home</a>
+
+
+    <!-- Load the game script -->
+    <script src="script.js"></script>
+
+    <!-- Define the word groups for THIS game -->
+    <script>
+        const gameGroups = {
+            "clairo song names": ["softly", "partridge", "north", "juna"],
+            "alc din enjoyers' sensitivies": ["milk", "avocado", "chili", "sesame"],
+            "reminiscient of uchi buildiings": ["regular", "harpoon", "maximum", "bartender"],
+            "TNT": ["noah", "explosive", "usa tv network", "chicago rooftop restuarant"]
+        };
+
+        function customMessage() {
+        return "🏆 Great work! You mastered all the connections for miss! 🏆";
+    }
+
+    initializeGame(gameGroups, customMessage);
+    </script>
+</body>
+</html>
