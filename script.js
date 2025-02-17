@@ -1,16 +1,23 @@
 function initializeGame(groups, finalMessageFunc) {
-    const words = Object.values(groups).flat(); // Flatten the groups into one array
+    const words = Object.values(groups).flat();
     const shuffledWords = words.sort(() => Math.random() - 0.5);
     const selectedWords = [];
     const grid = document.getElementById("game-grid");
     const foundGroupsDiv = document.getElementById("found-groups");
     const messageDiv = document.getElementById("message");
-    let foundGroupCount = 0; // Track the number of found groups
+    let foundGroupCount = 0; 
+    let guessCount = 0; // Track incorrect guesses
 
-    // Clear the grid and found groups section in case of re-initialization
+    // Clear previous game state
     grid.innerHTML = "";
     foundGroupsDiv.innerHTML = "";
-    messageDiv.textContent = ""; // Clear message
+    messageDiv.textContent = ""; 
+
+    // Create guess counter element
+    const guessCounterElement = document.createElement("p");
+    guessCounterElement.id = "guess-counter";
+    guessCounterElement.textContent = `Incorrect Guesses: ${guessCount}`;
+    messageDiv.insertAdjacentElement("afterend", guessCounterElement);
 
     // Create word buttons
     shuffledWords.forEach(word => {
@@ -69,9 +76,11 @@ function initializeGame(groups, finalMessageFunc) {
 
             // Check if all groups are found
             if (foundGroupCount === Object.keys(groups).length) {
-                messageDiv.innerHTML = finalMessageFunc(); // Call the custom message function
+                messageDiv.innerHTML = finalMessageFunc(guessCount); // Call the custom message function
             }
         } else {
+            guessCount++; // Only increment on incorrect guess
+            guessCounterElement.textContent = `Incorrect Guesses: ${guessCount}`;
             messageDiv.textContent = "Try again.";
         }
 
