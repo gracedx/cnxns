@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>miss</title>
+    <title>caro</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-color: lightpink;
+            background-color: white;
         }
         .word {
-            background: lightblue; 
+            background: black;
+            color: gainsboro;
         }
         .word.selected {
-            background: white;
-            color: coral;
+            background: rgb(252, 207, 214);
+            color: rgb(81, 7, 7);
         }
     </style>
 </head>
-<body class="miss">
-    <h1>nouhh</h1>
+<body class="caro">
+    <h1>caro</h1>
     
     <div id="game-grid"></div>
-    <button class="submit-button" style="color: coral;">Submit</button>
+    <button class="submit-button" style="color: whitesmoke;">Submit</button>
     <p id="message"></p>
-    <h2>found:</h2>
+    <h2 style="color: black;">found:</h2>
     <div id="found-groups">
     </div> 
     
-   <a href="index.html" class="back-home" style="color: white">⬅ Back to Home</a>
+   <a href="index.html" class="back-home" style="color: black;">⬅ Back to Home</a>
 
 
     <!-- Load the game script -->
@@ -37,14 +38,14 @@
     <!-- Define the word groups for THIS game -->
     <script>
         const gameGroups = {
-            "clairo song names": ["softly", "partridge", "north", "juna"],
+            "valorant artists xdd": ["madge", "99 god", "ericdoa", "xg"],
             "alc din enjoyers' sensitivies": ["milk", "avocado", "chili", "black sesame"],
-            "reminiscient of uchi buildings (?)": ["regular", "harpoon", "maximum", "bartender"],
-            "TNT": ["noah", "explosive", "usa tv network", "chicago rooftop restuarant"]
+            "reminiscient of uchi buildings": ["regular", "harpoon", "maximum", "bartender"],
+            "dumpling filling ingredients": ["cabbage", "mushroom", "pork", "shrimp"]            
         };
 
         function customMessage() {
-        return "🏆 Great work! You mastered all the connections for miss! 🏆";
+        return "🏆 Great work! You mastered all the connections for caro! 🏆";
     }
 
     initializeGame(gameGroups, customMessage);

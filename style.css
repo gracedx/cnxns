@@ -51,15 +51,17 @@ ul {
 ul li a {
     display: inline-block;
     text-decoration: none;
-    background: darkblue;
-    color: white;
+    background: rgb(173, 194, 230);
+    color: black;
     padding: 10px 15px;
     border-radius: 5px;
     margin: 5px;
 }
 
 ul li a:hover {
-    background: navy;
+    color: lightyellow;
+    background: rgb(92, 108, 135);
+    
 }
 
 /* Default button style */
@@ -82,6 +84,22 @@ ul li a:hover {
     background-color: rgb(106, 81, 22);
 }
 
+.rhea .submit-button { 
+    background-color: darkred;
+}
+
+.rhea .submit-button:hover {
+    background-color: rgb(252, 207, 214);
+}
+
+.steph .submit-button { 
+    background-color: darkred;
+}
+
+.steph .submit-button:hover {
+    background-color: rgb(252, 207, 214);
+}
+
 /* mle button color */
 .mle .submit-button { 
     background-color: darkred;
@@ -97,6 +115,22 @@ ul li a:hover {
 }
 
 .miss .submit-button:hover {
+    background-color: lightblue;
+}
+
+.caro .submit-button {
+    background-color: black;
+}
+
+.caro .submit-button:hover {
+    background-color: lightblue;
+}
+
+.nat .submit-button {
+    background-color: black;
+}
+
+.nat .submit-button:hover {
     background-color: lightblue;
 }
 

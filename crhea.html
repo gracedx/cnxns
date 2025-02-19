@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rhea</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: white;
+        }
+        .word {
+            background: black;
+            color: gainsboro;
+        }
+        .word.selected {
+            background: rgb(252, 207, 214);
+            color: rgb(81, 7, 7);
+        }
+    </style>
+</head>
+<body class="rhea">
+    <h1>rhea unfinished</h1>
+    
+    <div id="game-grid"></div>
+    <button class="submit-button" style="color: whitesmoke;">Submit</button>
+    <p id="message"></p>
+    <h2 style="color: black;">found:</h2>
+    <div id="found-groups">
+    </div> 
+    
+   <a href="index.html" class="back-home" style="color: black;">⬅ Back to Home</a>
+
+
+    <!-- Load the game script -->
+    <script src="script.js"></script>
+
+    <!-- Define the word groups for THIS game -->
+    <script>
+        const gameGroups = {
+            "valorant artists xdd": ["madge", "99 god", "ericdoa", "xg"],
+            "alc din enjoyers' sensitivies": ["milk", "avocado", "chili", "black sesame"],
+            "reminiscient of uchi buildings": ["regular", "harpoon", "maximum", "bartender"],
+            "dumpling filling ingredients": ["cabbage", "mushroom", "pork", "shrimp"]            
+        };
+
+        function customMessage() {
+        return "🏆 Great work! You mastered all the connections for rhea! 🏆";
+    }
+
+    initializeGame(gameGroups, customMessage);
+    </script>
+</body>
+</html>
