@@ -10,10 +10,11 @@ body {
     gap: 10px; /* Controls spacing between boxes */
     max-width: 350px; /* Ensures a controlled grid width */
     margin: 20px auto;
+    margin-left: calc(50% - 183px);
 }
 
 .word {
-    background: lightblue;
+    background: rgb(173, 194, 230);
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -29,7 +30,7 @@ body {
 
 
 .word.selected {
-    background: orange;
+    background: rgba(122, 98, 42, 0.587);
     color: white;
 }
 
@@ -63,6 +64,7 @@ ul li a:hover {
 
 /* Default button style */
 .submit-button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: lightblue;
     border: none;
     padding: 10px 20px;
@@ -71,13 +73,22 @@ ul li a:hover {
     cursor: pointer;
     transition: background 0.3s ease;
 }
+
+.grape .submit-button { 
+    background-color: rgba(122, 98, 42, 0.587);
+}
+
+.grape .submit-button:hover {
+    background-color: rgb(106, 81, 22);
+}
+
 /* mle button color */
-.mle .submit-button {
+.mle .submit-button { 
     background-color: darkred;
 }
 
 .mle .submit-button:hover {
-    background-color: maroon;
+    background-color: rgb(252, 207, 214);
 }
 
 /*miss button color */
@@ -86,7 +97,7 @@ ul li a:hover {
 }
 
 .miss .submit-button:hover {
-    background-color: black;
+    background-color: lightblue;
 }
 
 

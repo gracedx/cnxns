@@ -16,7 +16,7 @@ function initializeGame(groups, finalMessageFunc) {
     // Create guess counter element
     const guessCounterElement = document.createElement("p");
     guessCounterElement.id = "guess-counter";
-    guessCounterElement.textContent = `Incorrect Guesses: ${guessCount}`;
+    guessCounterElement.textContent = `incorrect guesses: ${guessCount}`;
     messageDiv.insertAdjacentElement("afterend", guessCounterElement);
 
     // Create word buttons
@@ -42,7 +42,7 @@ function initializeGame(groups, finalMessageFunc) {
 
     document.querySelector(".submit-button").addEventListener("click", () => {
         if (selectedWords.length !== 4) {
-            messageDiv.textContent = "Please select exactly 4 words!";
+            messageDiv.textContent = "pls select exactly four (4) words";
             return;
         }
 
@@ -56,7 +56,7 @@ function initializeGame(groups, finalMessageFunc) {
         });
 
         if (groupName) {
-            messageDiv.textContent = `Yay! You found: ${groupName}.`;
+            messageDiv.textContent = `yayy you found: ${groupName}.`;
 
             // Remove selected words from the grid
             selectedWords.forEach(word => {
@@ -80,8 +80,8 @@ function initializeGame(groups, finalMessageFunc) {
             }
         } else {
             guessCount++; // Only increment on incorrect guess
-            guessCounterElement.textContent = `Incorrect Guesses: ${guessCount}`;
-            messageDiv.textContent = "Try again.";
+            guessCounterElement.textContent = `incorrect guesses: ${guessCount}`;
+            messageDiv.textContent = "try again";
         }
 
         // Reset selection
