@@ -10,7 +10,7 @@ body {
     gap: 10px; /* Controls spacing between boxes */
     max-width: 350px; /* Ensures a controlled grid width */
     margin: 20px auto;
-    margin-left: calc(50% - 183px);
+    margin-left: calc(50% - 185px);
 }
 
 .word {
