@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>miss</title>
     <link rel="stylesheet" href="style.css">
-    <style>
+    <style> 
         body {
-            background-color: lightpink;
+            background-color: rgb(229, 249, 255);
         }
         .word {
-            background: lightblue; 
+            background: lightpink; 
         }
         .word.selected {
-            background: white;
-            color: coral;
+            color: rgb(82, 158, 184);
+            background: white; 
         }
     </style>
 </head>
@@ -22,13 +22,13 @@
     <h1>nouhh</h1>
     
     <div id="game-grid"></div>
-    <button class="submit-button" style="color: coral;">Submit</button>
+    <button class="submit-button" style="color: black;">Submit</button>
     <p id="message"></p>
     <h2>found:</h2>
     <div id="found-groups">
     </div> 
     
-   <a href="index.html" class="back-home" style="color: white">⬅ Back to Home</a>
+   <a href="index.html" class="back-home" style="color: rgb(82, 158, 184)">⬅ Back to Home</a>
 
 
     <!-- Load the game script -->
@@ -37,14 +37,14 @@
     <!-- Define the word groups for THIS game -->
     <script>
         const gameGroups = {
-            "clairo song names": ["softly", "partridge", "north", "juna"],
+            "baking ingredients": ["dark chocolate", "lotus paste", "gochujang", "golden raisins"],
             "alc din enjoyers' sensitivies": ["milk", "avocado", "chili", "black sesame"],
-            "reminiscient of uchi buildings (?)": ["regular", "harpoon", "maximum", "bartender"],
+            "starting with the starts of uchi buildings": ["regular", "harpoon", "maximum", "ratatouille"],
             "TNT": ["noah", "explosive", "usa tv network", "chicago rooftop restuarant"]
         };
 
         function customMessage() {
-        return "🏆 Great work! You mastered all the connections for miss! 🏆";
+        return "yayyy!! genuinely thanks sm for such a warm winter noah and all the fun times 🙂↕️ grateful to be friends :D";
     }
 
     initializeGame(gameGroups, customMessage);

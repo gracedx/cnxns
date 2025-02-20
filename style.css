@@ -10,7 +10,7 @@ body {
     gap: 10px; /* Controls spacing between boxes */
     max-width: 350px; /* Ensures a controlled grid width */
     margin: 20px auto;
-    margin-left: calc(50% - 187px);
+    margin-left: calc(50% - 185px);
 }
 
 .word {
@@ -102,36 +102,36 @@ ul li a:hover {
 
 /* mle button color */
 .mle .submit-button { 
-    background-color: darkred;
-}
-
-.mle .submit-button:hover {
     background-color: rgb(252, 207, 214);
 }
 
-/*miss button color */
+.mle .submit-button:hover {
+    background-color: rgb(201, 80, 98);
+}
+
+
 .miss .submit-button {
-    background-color: white;
+    background-color: lightblue;
 }
 
 .miss .submit-button:hover {
-    background-color: lightblue;
+    background-color: rgb(207, 186, 231);
 }
 
 .caro .submit-button {
-    background-color: black;
+    background-color: rgb(241, 163, 135);
 }
 
 .caro .submit-button:hover {
-    background-color: lightblue;
+    background-color: rgb(140, 67, 41);
 }
 
 .nat .submit-button {
-    background-color: black;
+    background-color: rgb(207, 186, 231);
 }
 
 .nat .submit-button:hover {
-    background-color: lightblue;
+    background-color: rgb(148, 109, 192);
 }
 
 

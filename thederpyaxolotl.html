@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-color: white;
+            background-color: rgb(253, 234, 210);
         }
         .word {
             background: black;
-            color: gainsboro;
+            color: rgb(253, 234, 210);
         }
         .word.selected {
-            background: rgb(252, 207, 214);
+            background: rgb(241, 163, 135);
             color: rgb(81, 7, 7);
         }
     </style>
@@ -23,9 +23,9 @@
     <h1>caro</h1>
     
     <div id="game-grid"></div>
-    <button class="submit-button" style="color: whitesmoke;">Submit</button>
+    <button class="submit-button" style="color: black;">Submit</button>
     <p id="message"></p>
-    <h2 style="color: black;">found:</h2>
+    <h2 style="color: black;">you've found:</h2>
     <div id="found-groups">
     </div> 
     
@@ -38,14 +38,14 @@
     <!-- Define the word groups for THIS game -->
     <script>
         const gameGroups = {
-            "valorant artists xdd": ["madge", "99 god", "ericdoa", "xg"],
+            "valorant artists": ["madge", "99 god", "ericdoa", "xg"],
             "alc din enjoyers' sensitivies": ["milk", "avocado", "chili", "black sesame"],
-            "reminiscient of uchi buildings": ["regular", "harpoon", "maximum", "bartender"],
+            "uchi frequents, shortened": ["reg", "jim", "med", "gob"],
             "dumpling filling ingredients": ["cabbage", "mushroom", "pork", "shrimp"]            
         };
 
         function customMessage() {
-        return "🏆 Great work! You mastered all the connections for caro! 🏆";
+        return "yayyy!! grateful i got to befriend u caro :P medici's was so fun n honestly wish we got to hang out more. (ay if i'm ever decking/spreadsheeting in chi we will make it happen) thanks for taking me in this winter n making it such a good time <3";
     }
 
     initializeGame(gameGroups, customMessage);
