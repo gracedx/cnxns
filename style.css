@@ -118,6 +118,14 @@ ul li a:hover {
     background-color: rgb(207, 186, 231);
 }
 
+.mk .submit-button {
+    background-color: rgb(116, 139, 103);
+}
+
+.mk .submit-button:hover {
+    background-color: rgb(148, 109, 192);
+}
+
 .caro .submit-button {
     background-color: rgb(241, 163, 135);
 }
