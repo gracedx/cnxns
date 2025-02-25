@@ -124,7 +124,7 @@ ul li a:hover {
 */
 
 .mk .submit-button {
-    background-color:   rgb(132, 133, 134)/* rgb(103, 111, 139);*/
+    background-color:  slategray /* rgb(132, 133, 134)/* rgb(103, 111, 139);*/
 }
 
 .mk .submit-button:hover {
@@ -136,15 +136,15 @@ ul li a:hover {
 }
 
 .caro .submit-button:hover {
-    background-color: rgb(140, 67, 41);
+    background-color: rgb(189, 131, 108);
 }
 
 .nat .submit-button {
-    background-color: rgb(207, 186, 231);
+    background-color: rgb(211, 198, 225);
 }
 
 .nat .submit-button:hover {
-    background-color: rgb(148, 109, 192);
+    background-color: rgb(163, 139, 191);
 }
 
 
