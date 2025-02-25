@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <style> 
          body {
-            background-color: rgb(223, 236, 215);
+            background-color: rgb(248, 251, 198);
         }
         .word {
             background: black;
-            color: rgb(223, 236, 215);
+            color: rgb(248, 251, 198);
         }
         .word.selected {
-            background: rgb(223, 236, 215);
-            color: rgb(78, 84, 105);
+            background: rgb(248, 251, 198);
+            color: rgb(132, 133, 134) 
+            /*color: rgb(118, 51, 27)
+            rgb(100, 135, 100);
+            color: rgb(78, 84, 105);*/
         }
     </style>
 </head>
@@ -23,13 +26,13 @@
     <h1>minsaw</h1>
     
     <div id="game-grid"></div>
-    <button class="submit-button" style="color: rgb(223, 236, 215);">Submit</button>
+    <button class="submit-button" style="color: rgb(248, 251, 198);">Submit</button>
     <p id="message"></p>
     <h2>found:</h2>
     <div id="found-groups">
     </div> 
     
-   <a href="index.html" class="back-home" style="color: rgb(78, 84, 105)">⬅ Back to Home</a>
+   <a href="index.html" class="back-home" style="color: black">⬅ Back to Home</a>
 
 
     <!-- Load the game script -->
@@ -39,8 +42,8 @@
     <script>
         const gameGroups = {
             "pokemon names that are real english words": ["slaking", "electrode", "mew", "ditto"],
-            "poems by cecilia vicuna": ["teresa the idiot", "jungle kill", "the dis-appeared", "inkamisana"],
-            "songs": ["global extinction", "flat coke", "crash out", "get some"],
+            "cecilia vicuña poems": ["teresa the idiot", "jungle kill", "the dis-appeared", "inkamisana"],
+            "shared songs": ["global extinction", "flat coke", "crash out", "get some"],
             "hxh nen but as verbs": ["manipulate", "conjure", "emit", "enhance"]
         };
 /* foods?? baklava? chainsaw man related... idk think*/
