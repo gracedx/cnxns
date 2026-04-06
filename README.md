@@ -1,3 +1,3 @@
 # cnxns
-diy game inspired by nyt connections
-gracedx.github.io/cnxns/index.html
+visit at gracedx.github.io/cnxns/index.html
+/diy game inspired by nyt connections
